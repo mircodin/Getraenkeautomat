@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Getraenkeautomat:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Getraenkeautomat</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Getraenkeautomat-1.0.war">
+      <element id="artifact" artifact-name="Getraenkeautomat:war exploded" />
+    </root>
+  </artifact>
+</component>
