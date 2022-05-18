@@ -28,4 +28,5 @@ public class Marke {
     public void setUmsatz(Integer umsatz) {
         this.umsatz = umsatz;
     }
+
 }
