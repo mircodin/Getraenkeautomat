@@ -3,9 +3,18 @@ package ch.bzz.getraenkeautomat.model;
 import java.util.List;
 
 public class Getraenkeautomat {
+    private String getraenkeautomatUUID;
     private List<Getraenk> getraenke;
     private String modellnummer;
     private String farbe;
+
+    public String getGetraenkeautomatUUID() {
+        return getraenkeautomatUUID;
+    }
+
+    public void setGetraenkeautomatUUID(String getraenkeautomatUUID) {
+        this.getraenkeautomatUUID = getraenkeautomatUUID;
+    }
 
     public List<Getraenk> getGetraenke() {
         return getraenke;

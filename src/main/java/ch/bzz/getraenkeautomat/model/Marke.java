@@ -1,9 +1,19 @@
 package ch.bzz.getraenkeautomat.model;
 
 public class Marke {
+    private String markeUUID;
     private String bezeichnung;
     private String hauptsitz;
     private Integer umsatz;
+    private String telefonnummer;
+
+    public String getMarkeUUID() {
+        return markeUUID;
+    }
+
+    public void setMarkeUUID(String markeUUID) {
+        this.markeUUID = markeUUID;
+    }
 
     public String getBezeichnung() {
         return bezeichnung;
@@ -29,4 +39,11 @@ public class Marke {
         this.umsatz = umsatz;
     }
 
+    public String getTelefonnummer() {
+        return telefonnummer;
+    }
+
+    public void setTelefonnummer(String telefonnummer) {
+        this.telefonnummer = telefonnummer;
+    }
 }
