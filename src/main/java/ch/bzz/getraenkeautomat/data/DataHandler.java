@@ -167,5 +167,4 @@ public class DataHandler {
         this.publisherList = publisherList;
     }
 
-
 }
