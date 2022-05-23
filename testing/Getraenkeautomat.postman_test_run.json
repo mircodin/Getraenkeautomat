@@ -1,0 +1,238 @@
+{
+	"id": "b4eed2af-97cb-4696-a46a-0a90bc9b93ae",
+	"name": "Getraenkeautomat",
+	"timestamp": "2022-05-23T21:38:23.760Z",
+	"collection_id": "31e70f05-0d04-40cc-a713-a93b710dc640",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "fed75e33-d0df-4437-896a-9c1cc969ecbd",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/test/test",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "97440d30-80fe-40f1-8cfe-19f394297deb",
+			"name": "Getraenke List",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/list",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ab8701cc-90ff-4137-a20e-f6dbf6322b53",
+			"name": "Getraenk Read",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=c746a291-0ef9-4b2a-8268-392b12d636bd",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e9e3ff11-7265-49a0-b662-2ac7661f1498",
+			"name": "Getraenk Read Invalid",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=c746a291-0ef9-4b2a-8268-392b12d67105",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				29
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "eaf9236e-50c4-48cc-852d-ea135bf1c516",
+			"name": "Getraenkeautomat List",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/list",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f596fbf9-9375-4b04-9328-d4b9e1c2dca0",
+			"name": "Getraenkeautomat Read",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d725c722-2b8e-42d8-9043-cca8aa28cbf6",
+			"name": "Getraenkeautomat Read Invalid",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6fef8ce9-6f35-4c58-aee8-71986d2196c9",
+			"name": "Marke List",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/list",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				29
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "563c6ffe-0443-48ba-8431-432e59befc3b",
+			"name": "Marke Read",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "81a4123d-cfa2-436d-b70a-f99967b41a0e",
+			"name": "Marke Read Invalid",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=c636amg1-0ef9-8770-8268-392b12d636bd",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 180,
+	"collection": {
+		"requests": [
+			{
+				"id": "fed75e33-d0df-4437-896a-9c1cc969ecbd",
+				"method": "GET"
+			},
+			{
+				"id": "97440d30-80fe-40f1-8cfe-19f394297deb",
+				"method": "GET"
+			},
+			{
+				"id": "ab8701cc-90ff-4137-a20e-f6dbf6322b53",
+				"method": "GET"
+			},
+			{
+				"id": "e9e3ff11-7265-49a0-b662-2ac7661f1498",
+				"method": "GET"
+			},
+			{
+				"id": "eaf9236e-50c4-48cc-852d-ea135bf1c516",
+				"method": "GET"
+			},
+			{
+				"id": "f596fbf9-9375-4b04-9328-d4b9e1c2dca0",
+				"method": "GET"
+			},
+			{
+				"id": "d725c722-2b8e-42d8-9043-cca8aa28cbf6",
+				"method": "GET"
+			},
+			{
+				"id": "6fef8ce9-6f35-4c58-aee8-71986d2196c9",
+				"method": "GET"
+			},
+			{
+				"id": "563c6ffe-0443-48ba-8431-432e59befc3b",
+				"method": "GET"
+			},
+			{
+				"id": "81a4123d-cfa2-436d-b70a-f99967b41a0e",
+				"method": "GET"
+			}
+		]
+	}
+}
