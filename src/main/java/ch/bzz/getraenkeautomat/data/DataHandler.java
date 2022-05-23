@@ -122,12 +122,12 @@ public class DataHandler {
      */
     private void readGetraenkJSON() {
         try {
-            String path = Config.getProperty("getraenkJSON");
             byte[] jsonData = Files.readAllBytes(
-                    Paths.get(path)
+                    Paths.get(
+                            Config.getProperty("getraenkJSON")
+                    )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            // objectMapper.registerModule(new JavaTimeModule());
             Getraenk[] getraenke = objectMapper.readValue(jsonData, Getraenk[].class);
             for (Getraenk getraenk : getraenke) {
                 getGetraenkList().add(getraenk);
