@@ -6,6 +6,7 @@ import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import ch.bzz.getraenkeautomat.service.Config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -126,6 +127,7 @@ public class DataHandler {
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
+            // objectMapper.registerModule(new JavaTimeModule());
             Getraenk[] getraenke = objectMapper.readValue(jsonData, Getraenk[].class);
             for (Getraenk getraenk : getraenke) {
                 getGetraenkList().add(getraenk);
