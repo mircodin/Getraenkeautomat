@@ -24,7 +24,7 @@ public class Getraenk {
     }
 
     /**
-     * gets getraenkUUID
+     * sets getraenkUUID
      *
      * @param getraenkUUID the value to set
      */
@@ -42,7 +42,7 @@ public class Getraenk {
     }
 
     /**
-     * gets bezeichnung
+     * sets bezeichnung
      *
      * @param bezeichnung the value to set
      */
@@ -60,7 +60,7 @@ public class Getraenk {
     }
 
     /**
-     * gets preis
+     * sets preis
      *
      * @param preis the value to set
      */
@@ -78,7 +78,7 @@ public class Getraenk {
     }
 
     /**
-     * gets inhaltInML
+     * sets inhaltInML
      *
      * @param inhaltInML the value to set
      */
@@ -96,7 +96,7 @@ public class Getraenk {
     }
 
     /**
-     * gets ablaufdatum
+     * sets ablaufdatum
      *
      * @param ablaufdatum the value to set
      */
@@ -114,7 +114,7 @@ public class Getraenk {
     }
 
     /**
-     * gets getraenkeautomat
+     * sets getraenkeautomat
      *
      * @param getraenkeautomat the value to set
      */
@@ -132,7 +132,7 @@ public class Getraenk {
     }
 
     /**
-     * gets marke
+     * sets marke
      *
      * @param marke the value to set
      */

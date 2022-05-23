@@ -17,7 +17,7 @@ public class Marke {
     }
 
     /**
-     * gets markeUUID
+     * sets markeUUID
      *
      * @param markeUUID the value to set
      */
@@ -35,7 +35,7 @@ public class Marke {
     }
 
     /**
-     * gets bezeichnung
+     * sets bezeichnung
      *
      * @param bezeichnung the value to set
      */
@@ -53,7 +53,7 @@ public class Marke {
     }
 
     /**
-     * gets hauptsitz
+     * sets hauptsitz
      *
      * @param hauptsitz the value to set
      */
@@ -71,7 +71,7 @@ public class Marke {
     }
 
     /**
-     * gets umsatz
+     * sets umsatz
      *
      * @param umsatz the value to set
      */
@@ -89,7 +89,7 @@ public class Marke {
     }
 
     /**
-     * gets telefonnummer
+     * sets telefonnummer
      *
      * @param telefonnummer the value to set
      */

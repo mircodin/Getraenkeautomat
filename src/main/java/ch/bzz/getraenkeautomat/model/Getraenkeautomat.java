@@ -18,7 +18,7 @@ public class Getraenkeautomat {
     }
 
     /**
-     * gets getraenkeautomatUUID
+     * sets getraenkeautomatUUID
      *
      * @param getraenkeautomatUUID the value to set
      */
@@ -36,7 +36,7 @@ public class Getraenkeautomat {
     }
 
     /**
-     * gets getraenke
+     * sets getraenke
      *
      * @param getraenke the value to set
      */
@@ -54,7 +54,7 @@ public class Getraenkeautomat {
     }
 
     /**
-     * gets modellnummer
+     * sets modellnummer
      *
      * @param modellnummer the value to set
      */
@@ -72,7 +72,7 @@ public class Getraenkeautomat {
     }
 
     /**
-     * gets farbe
+     * sets farbe
      *
      * @param farbe the value to set
      */
