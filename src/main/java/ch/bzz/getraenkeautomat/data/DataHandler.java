@@ -3,7 +3,6 @@ package ch.bzz.getraenkeautomat.data;
 import ch.bzz.getraenkeautomat.model.Getraenk;
 import ch.bzz.getraenkeautomat.model.Marke;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
-
 import ch.bzz.getraenkeautomat.service.Config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,9 +18,9 @@ import java.util.List;
  */
 public class DataHandler {
     private static DataHandler instance = null;
-    private List<Getraenk> GetraenkList;
-    private List<Marke> MarkeList;
-    private List<Getraenkeautomat> GetraenkeautomatList;
+    private List<Getraenk> getraenkList;
+    private List<Marke> markeList;
+    private List<Getraenkeautomat> getraenkeautomatList;
 
     /**
      * private constructor defeats instantiation
@@ -47,15 +46,15 @@ public class DataHandler {
 
 
     /**
-     * reads all getraenke
-     * @return list of getraenke
+     * reads all Getraenke
+     * @return list of Getraenke
      */
-    public List<Getraenk> readAllGetraenk() {
+    public List<Getraenk> readAllGetraenke() {
         return getGetraenkList();
     }
 
     /**
-     * reads a getraenk by its uuid
+     * reads a Getraenk by its uuid
      * @param getraenkUUID
      * @return the getraenk (null=not found)
      */
@@ -70,42 +69,66 @@ public class DataHandler {
     }
 
     /**
-     * reads all Publishers
-     * @return list of publishers
+     * reads all marken
+     * @return list of marken
      */
-    public List<Publisher> readAllPublishers() {
+    public List<Marke> readAllMarken() {
 
-        return getPublisherList();
+        return getMarkeList();
     }
 
     /**
-     * reads a publisher by its uuid
-     * @param publisherUUID
-     * @return the Publisher (null=not found)
+     * reads an marke by its uuid
+     * @param markeUUID
+     * @return the Marke (null=not found)
      */
-    public Publisher readPublisherByUUID(String publisherUUID) {
-        Publisher publisher = null;
-        for (Publisher entry : getPublisherList()) {
-            if (entry.getPublisherUUID().equals(publisherUUID)) {
-                publisher = entry;
+    public Marke readMarkeByUUID(String markeUUID) {
+        Marke marke = null;
+        for (Marke entry : getMarkeList()) {
+            if (entry.getMarkeUUID().equals(markeUUID)) {
+                marke = entry;
             }
         }
-        return publisher;
+        return marke;
     }
 
     /**
-     * reads the books from the JSON-file
+     * reads all getraenkeautomaten
+     * @return list of getraenkeautomaten
      */
-    private void readBookJSON() {
+    public List<Getraenkeautomat> readAllGetraenkeautomaten() {
+
+        return getGetraenkeautomatList();
+    }
+
+    /**
+     * reads a getraenkeautomat by its uuid
+     * @param getraenkeautomatUUID
+     * @return the Getraenkeautomat (null=not found)
+     */
+    public Getraenkeautomat readGetraenkeautomatbyUUID(String getraenkeautomatUUID) {
+        Getraenkeautomat getraenkeautomat = null;
+        for (Getraenkeautomat entry : getGetraenkeautomatList()) {
+            if (entry.getGetraenkeautomatUUID().equals(getraenkeautomatUUID)) {
+                getraenkeautomat = entry;
+            }
+        }
+        return getraenkeautomat;
+    }
+
+    /**
+     * reads the getraenke from the JSON-file
+     */
+    private void readGetraenkJSON() {
         try {
-            String path = Config.getProperty("bookJSON");
+            String path = Config.getProperty("getraenkJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Book[] books = objectMapper.readValue(jsonData, Book[].class);
-            for (Book book : books) {
-                getBookList().add(book);
+            Getraenk[] getraenke = objectMapper.readValue(jsonData, Getraenk[].class);
+            for (Getraenk getraenk : getraenke) {
+                getGetraenkList().add(getraenk);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -113,58 +136,98 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * reads the marken from the JSON-file
      */
-    private void readPublisherJSON() {
+    private void readMarkeJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
-                            Config.getProperty("publisherJSON")
+                            Config.getProperty("markeJSON")
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
-            for (Publisher publisher : publishers) {
-                getPublisherList().add(publisher);
+            Marke[] marken = objectMapper.readValue(jsonData, Marke[].class);
+            for (Marke marke : marken) {
+                getMarkeList().add(marke);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+
     /**
-     * gets bookList
-     *
-     * @return value of bookList
+     * reads the getraenkeautomat from the JSON-file
      */
-    private List<Book> getBookList() {
-        return bookList;
+    private void readGetraenkeautomatJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("getraenkeautomatJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Getraenkeautomat[] getraenkeautomaten = objectMapper.readValue(jsonData, Getraenkeautomat[].class);
+            for (Getraenkeautomat getraenkeautomat : getraenkeautomaten) {
+                getGetraenkeautomatList().add(getraenkeautomat);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
-     * sets bookList
+     * gets getraenkList
      *
-     * @param bookList the value to set
+     * @return value of getraenkList
      */
-    private void setBookList(List<Book> bookList) {
-        this.bookList = bookList;
+    private List<Getraenk> getGetraenkList() {
+        return getraenkList;
     }
 
     /**
-     * gets publisherList
+     * sets getraenkList
      *
-     * @return value of publisherList
+     * @param getraenkList the value to set
      */
-    private List<Publisher> getPublisherList() {
-        return publisherList;
+    private void setGetraenkList(List<Getraenk> getraenkList) {
+        this.getraenkList = getraenkList;
     }
 
     /**
-     * sets publisherList
+     * gets markeList
      *
-     * @param publisherList the value to set
+     * @return value of markeList
      */
-    private void setPublisherList(List<Publisher> publisherList) {
-        this.publisherList = publisherList;
+    private List<Marke> getMarkeList() {
+        return markeList;
     }
+
+    /**
+     * sets markeList
+     *
+     * @param markeList the value to set
+     */
+    private void setMarkeList(List<Marke> markeList) {
+        this.markeList = markeList;
+    }
+
+    /**
+     * gets getraenkeautomatList
+     *
+     * @return value of getraenkeautomatList
+     */
+    private List<Getraenkeautomat> getGetraenkeautomatList() {
+        return getraenkeautomatList;
+    }
+
+    /**
+     * sets getraenkeautomatList
+     *
+     * @param getraenkeautomatList the value to set
+     */
+    private void setGetraenkeautomatList(List<Getraenkeautomat> getraenkeautomatList) {
+        this.getraenkeautomatList = getraenkeautomatList;
+    }
+
 
 }

@@ -4,7 +4,7 @@
     "bezeichnung": "Fanta Orange",
     "preis": 1.30,
     "inhaltInML": 500,
-    "ablaufdatum": "10.12.2023",
+    "ablaufdatum": "2023-12-10",
     "getraenkeautomat": "ecd86148-5341-43c6-81ed-f3f4595965dc",
     "marke": "db117daa-e295-4597-abcd-a69496797dc0"
   },
@@ -13,7 +13,7 @@
     "bezeichnung": "Coca Cola Zero",
     "preis": 1.50,
     "inhaltInML": 500,
-    "ablaufdatum": "22.10.2023",
+    "ablaufdatum": "2023-10-22",
     "getraenkeautomat": "ecd86148-5341-43c6-81ed-f3f4595965dc",
     "marke": "db117daa-e295-4597-abcd-a69496797dc0"
   },
@@ -22,7 +22,7 @@
     "bezeichnung": "Rivella Rot",
     "preis": 2,
     "inhaltInML": 500,
-    "ablaufdatum": "19.06.2023",
+    "ablaufdatum": "2023-06-12",
     "getraenkeautomat": "ecd86148-5341-43c6-81ed-f3f4595965dc",
     "marke": "c746a291-0ef9-4b2a-8268-392b12d636bd"
   }
