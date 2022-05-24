@@ -5,21 +5,16 @@ import ch.bzz.getraenkeautomat.model.Marke;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import ch.bzz.getraenkeautomat.service.Config;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.google.inject.Singleton;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * reads and writes the data in the JSON-files
  */
-@Singleton
 public class DataHandler {
     private static DataHandler instance;
     private static List<Getraenk> getraenkList;
