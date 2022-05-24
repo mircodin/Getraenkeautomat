@@ -22,11 +22,11 @@ public class Getraenk {
     private Marke marke;
 
     public void setGetraenkeautomatUUID(String getraenkeautomatUUID){
-        setGetraenkeautomat(DataHandler.getInstance().readGetraenkeautomatbyUUID(getraenkeautomatUUID));
+        setGetraenkeautomat(DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID));
     }
 
     public void setMarkeUUID(String markeUUID){
-        setMarke(DataHandler.getInstance().readMarkeByUUID(markeUUID));
+        setMarke(DataHandler.readMarkeByUUID(markeUUID));
     }
 
     /**

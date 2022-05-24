@@ -8,6 +8,7 @@ import ch.bzz.getraenkeautomat.service.Config;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.google.inject.Singleton;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,29 +19,24 @@ import java.util.List;
 /**
  * reads and writes the data in the JSON-files
  */
+@Singleton
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Getraenk> getraenkList;
-    private List<Marke> markeList;
-    private List<Getraenkeautomat> getraenkeautomatList;
+    private static DataHandler instance;
+    private static List<Getraenk> getraenkList;
+    private static List<Marke> markeList;
+    private static List<Getraenkeautomat> getraenkeautomatList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setGetraenkList(new ArrayList<>());
-        readGetraenkJSON();
-        setMarkeList(new ArrayList<>());
-        readMarkeJSON();
-        setGetraenkeautomatList(new ArrayList<>());
-        readGetraenkeautomatJSON();
     }
 
     /**
      * gets the only instance of this class
      * @return
      */
-    public static DataHandler getInstance() {
+    public synchronized static DataHandler getInstance() {
         if (instance == null)
             instance = new DataHandler();
         return instance;
@@ -51,7 +47,7 @@ public class DataHandler {
      * reads all Getraenke
      * @return list of Getraenke
      */
-    public List<Getraenk> readAllGetraenke() {
+    public static List<Getraenk> readAllGetraenke() {
         return getGetraenkList();
     }
 
@@ -60,7 +56,7 @@ public class DataHandler {
      * @param getraenkUUID
      * @return the getraenk (null=not found)
      */
-    public Getraenk readGetraenkByUUID(String getraenkUUID) {
+    public static Getraenk readGetraenkByUUID(String getraenkUUID) {
         Getraenk getraenk = null;
         for (Getraenk entry : getGetraenkList()) {
             if (entry.getGetraenkUUID().equals(getraenkUUID)) {
@@ -74,7 +70,7 @@ public class DataHandler {
      * reads all marken
      * @return list of marken
      */
-    public List<Marke> readAllMarken() {
+    public static List<Marke> readAllMarken() {
 
         return getMarkeList();
     }
@@ -84,7 +80,7 @@ public class DataHandler {
      * @param markeUUID
      * @return the Marke (null=not found)
      */
-    public Marke readMarkeByUUID(String markeUUID) {
+    public static Marke readMarkeByUUID(String markeUUID) {
         Marke marke = null;
         for (Marke entry : getMarkeList()) {
             if (entry.getMarkeUUID().equals(markeUUID)) {
@@ -98,7 +94,7 @@ public class DataHandler {
      * reads all getraenkeautomaten
      * @return list of getraenkeautomaten
      */
-    public List<Getraenkeautomat> readAllGetraenkeautomaten() {
+    public static List<Getraenkeautomat> readAllGetraenkeautomaten() {
 
         return getGetraenkeautomatList();
     }
@@ -108,7 +104,7 @@ public class DataHandler {
      * @param getraenkeautomatUUID
      * @return the Getraenkeautomat (null=not found)
      */
-    public Getraenkeautomat readGetraenkeautomatbyUUID(String getraenkeautomatUUID) {
+    public static Getraenkeautomat readGetraenkeautomatbyUUID(String getraenkeautomatUUID) {
         Getraenkeautomat getraenkeautomat = null;
         for (Getraenkeautomat entry : getGetraenkeautomatList()) {
             if (entry.getGetraenkeautomatUUID().equals(getraenkeautomatUUID)) {
@@ -121,7 +117,7 @@ public class DataHandler {
     /**
      * reads the getraenke from the JSON-file
      */
-    private void readGetraenkJSON() {
+    private static void readGetraenkJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -142,7 +138,7 @@ public class DataHandler {
     /**
      * reads the marken from the JSON-file
      */
-    private void readMarkeJSON() {
+    private static void readMarkeJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -162,7 +158,7 @@ public class DataHandler {
     /**
      * reads the getraenkeautomat from the JSON-file
      */
-    private void readGetraenkeautomatJSON() {
+    private static void readGetraenkeautomatJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -184,7 +180,7 @@ public class DataHandler {
      *
      * @return value of getraenkList
      */
-    private List<Getraenk> getGetraenkList() {
+    private static List<Getraenk> getGetraenkList() {
         return getraenkList;
     }
 
@@ -193,8 +189,7 @@ public class DataHandler {
      *
      * @param getraenkList the value to set
      */
-    private void setGetraenkList(List<Getraenk> getraenkList) {
-        this.getraenkList = getraenkList;
+    private static void setGetraenkList(List<Getraenk> getraenkList) { DataHandler.getraenkList = getraenkList;
     }
 
     /**
@@ -202,7 +197,7 @@ public class DataHandler {
      *
      * @return value of markeList
      */
-    private List<Marke> getMarkeList() {
+    private static List<Marke> getMarkeList() {
         return markeList;
     }
 
@@ -211,8 +206,8 @@ public class DataHandler {
      *
      * @param markeList the value to set
      */
-    private void setMarkeList(List<Marke> markeList) {
-        this.markeList = markeList;
+    private static void setMarkeList(List<Marke> markeList) {
+        DataHandler.markeList = markeList;
     }
 
     /**
@@ -220,7 +215,7 @@ public class DataHandler {
      *
      * @return value of getraenkeautomatList
      */
-    private List<Getraenkeautomat> getGetraenkeautomatList() {
+    private static List<Getraenkeautomat> getGetraenkeautomatList() {
         return getraenkeautomatList;
     }
 
@@ -229,8 +224,8 @@ public class DataHandler {
      *
      * @param getraenkeautomatList the value to set
      */
-    private void setGetraenkeautomatList(List<Getraenkeautomat> getraenkeautomatList) {
-        this.getraenkeautomatList = getraenkeautomatList;
+    private static void setGetraenkeautomatList(List<Getraenkeautomat> getraenkeautomatList) {
+        DataHandler.getraenkeautomatList = getraenkeautomatList;
     }
 
 

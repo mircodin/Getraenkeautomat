@@ -23,7 +23,7 @@ public class GetraenkeautomatService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listGetraenkeautomat() {
-        List<Getraenkeautomat> getraenkeautomatList = DataHandler.getInstance().readAllGetraenkeautomaten();
+        List<Getraenkeautomat> getraenkeautomatList = DataHandler.readAllGetraenkeautomaten();
         Response response = Response
                 .status(200)
                 .entity(getraenkeautomatList)
@@ -41,7 +41,7 @@ public class GetraenkeautomatService {
     public Response readGetraenkeautomat(
             @QueryParam("uuid") String getraenkeautomatUUID
     ) {
-        Getraenkeautomat getraenkeautomat = DataHandler.getInstance().readGetraenkeautomatbyUUID(getraenkeautomatUUID);
+        Getraenkeautomat getraenkeautomat = DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID);
         return Response
                 .status(200)
                 .entity(getraenkeautomat)

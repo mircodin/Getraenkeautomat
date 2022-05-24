@@ -23,7 +23,7 @@ public class MarkeService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listMarke() {
-        List<Marke> markeList = DataHandler.getInstance().readAllMarken();
+        List<Marke> markeList = DataHandler.readAllMarken();
         Response response = Response
                 .status(200)
                 .entity(markeList)
@@ -41,7 +41,7 @@ public class MarkeService {
     public Response readMarke(
             @QueryParam("uuid") String markeUUID
     ) {
-        Marke marke = DataHandler.getInstance().readMarkeByUUID(markeUUID);
+        Marke marke = DataHandler.readMarkeByUUID(markeUUID);
         return Response
                 .status(200)
                 .entity(marke)

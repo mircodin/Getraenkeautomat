@@ -22,7 +22,7 @@ public class GetraenkService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response listGetraenke() {
-        List<Getraenk> getraenkList = DataHandler.getInstance().readAllGetraenke();
+        List<Getraenk> getraenkList = DataHandler.readAllGetraenke();
         Response response = Response
                 .status(200)
                 .entity(getraenkList)
@@ -40,7 +40,7 @@ public class GetraenkService {
     public Response readGetraenk(
             @QueryParam("uuid") String getraenkUUID
     ) {
-        Getraenk getraenk = DataHandler.getInstance().readGetraenkByUUID(getraenkUUID);
+        Getraenk getraenk = DataHandler.readGetraenkByUUID(getraenkUUID);
         return Response
                 .status(200)
                 .entity(getraenk)
