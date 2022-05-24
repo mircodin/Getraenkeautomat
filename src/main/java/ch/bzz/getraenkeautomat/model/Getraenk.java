@@ -1,18 +1,33 @@
 package ch.bzz.getraenkeautomat.model;
 
+import ch.bzz.getraenkeautomat.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Getraenk {
     private String getraenkUUID;
     private String bezeichnung;
     private Double preis;
     private Integer inhaltInML;
-    // @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate ablaufdatum;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date ablaufdatum;
+
+    @JsonIgnore
     private Getraenkeautomat getraenkeautomat;
+
+    @JsonIgnore
     private Marke marke;
+
+    public void setGetraenkeautomatUUID(String getraenkeautomatUUID){
+        setGetraenkeautomat(DataHandler.getInstance().readGetraenkeautomatbyUUID(getraenkeautomatUUID));
+    }
+
+    public void setMarkeUUID(String markeUUID){
+        setMarke(DataHandler.getInstance().readMarkeByUUID(markeUUID));
+    }
 
     /**
      * gets getraenkUUID
@@ -91,7 +106,7 @@ public class Getraenk {
      *
      * @return value of ablaufdatum
      */
-    public LocalDate getAblaufdatum() {
+    public Date getAblaufdatum() {
         return ablaufdatum;
     }
 
@@ -100,7 +115,7 @@ public class Getraenk {
      *
      * @param ablaufdatum the value to set
      */
-    public void setAblaufdatum(LocalDate ablaufdatum) {
+    public void setAblaufdatum(Date ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
     }
 
