@@ -7,6 +7,7 @@ import ch.bzz.getraenkeautomat.service.Config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -25,6 +26,15 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
+    }
+
+    /**
+     * initialize the lists with the data
+     */
+    public static void initLists() {
+        DataHandler.setGetraenkList(null);
+        DataHandler.setMarkeList(null);
+        DataHandler.setGetraenkeautomatList(null);
     }
 
     /**
@@ -107,6 +117,99 @@ public class DataHandler {
             }
         }
         return getraenkeautomat;
+    }
+
+    /**
+     * inserts a new book into the bookList
+     *
+     * @param getraenkeautomat the book to be saved
+     */
+    public static void insertGetraenkeautomat(Getraenkeautomat getraenkeautomat) {
+        getGetraenkeautomatList().add(Getraenkeautomat);
+        writeGetraenkeautomatJSON();
+    }
+    /**
+     * updates the bookList
+     */
+    public static void updateGetraenkeautomat() {
+        writeGetraenkeautomatJSON();
+    }
+    /**
+     * deletes a book identified by the bookUUID
+     * @param getraenkeautomatUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteGetraenkeautomat(String getraenkeautomatUUID) {
+        Getraenkeautomat getraenkeautomat = readGetraenkeautomatbyUUID(getraenkeautomatUUID);
+        if (getraenkeautomat != null) {
+            getGetraenkeautomatList().remove(getraenkeautomat);
+            writeGetraenkeautomatJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * inserts a new book into the bookList
+     *
+     * @param getraenk the book to be saved
+     */
+    public static void insertGetraenk(Getraenk getraenk) {
+        getGetraenkList().add(getraenk);
+        writeGetraenkJSON();
+    }
+    /**
+     * updates the bookList
+     */
+    public static void updateGetraenk() {
+        writeGetraenkJSON();
+    }
+    /**
+     * deletes a book identified by the bookUUID
+     * @param getraenkUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteGetraenk(String getraenkUUID) {
+        Getraenk getraenk = readGetraenkByUUID(getraenkUUID);
+        if (getraenk != null) {
+            getGetraenkList().remove(getraenk);
+            writeGetraenkJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * inserts a new book into the bookList
+     *
+     * @param marke the book to be saved
+     */
+    public static void insertMarke(Marke marke) {
+        getMarkeList().add(marke);
+        writeMarkeJSON();
+    }
+    /**
+     * updates the bookList
+     */
+    public static void updateMarke() {
+        writeMarkeJSON();
+    }
+    /**
+     * deletes a book identified by the bookUUID
+     * @param markeUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteMarke(String markeUUID) {
+        Marke marke = readMarkeByUUID(markeUUID);
+        if (marke != null) {
+            getMarkeList().remove(marke);
+            writeMarkeJSON();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
