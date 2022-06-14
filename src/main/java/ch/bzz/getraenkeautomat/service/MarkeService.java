@@ -2,16 +2,15 @@ package ch.bzz.getraenkeautomat.service;
 
 import ch.bzz.getraenkeautomat.data.DataHandler;
 import ch.bzz.getraenkeautomat.model.Getraenk;
+import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import ch.bzz.getraenkeautomat.model.Marke;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.List;
+import java.util.UUID;
 
 @Path("marke")
 public class MarkeService {
@@ -45,6 +44,37 @@ public class MarkeService {
         return Response
                 .status(200)
                 .entity(marke)
+                .build();
+    }
+
+    /**
+     * inserts a new Marke
+     * @param bezeichnung
+     * @param hauptsitz
+     * @param umsatz
+     * @param telefonnummer
+     * @return Response
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertMarke(
+            @FormParam("bezeichnung") String bezeichnung,
+            @FormParam("hauptsitz") String hauptsitz,
+            @FormParam("umsatz") Integer umsatz,
+            @FormParam("telefonnummer") String telefonnummer
+    ) {
+        Marke marke = new Marke();
+        marke.setMarkeUUID(UUID.randomUUID().toString());
+        marke.setBezeichnung(bezeichnung);
+        marke.setHauptsitz(hauptsitz);
+        marke.setUmsatz(umsatz);
+        marke.setTelefonnummer(telefonnummer);
+
+        DataHandler.insertMarke(marke);
+        return Response
+                .status(200)
+                .entity("")
                 .build();
     }
 }

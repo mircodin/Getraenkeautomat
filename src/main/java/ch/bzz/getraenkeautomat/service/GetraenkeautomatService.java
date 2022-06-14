@@ -4,14 +4,12 @@ import ch.bzz.getraenkeautomat.data.DataHandler;
 import ch.bzz.getraenkeautomat.model.Getraenk;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.List;
+import java.util.UUID;
 
 @Path("getraenkeautomat")
 public class GetraenkeautomatService {
@@ -45,6 +43,31 @@ public class GetraenkeautomatService {
         return Response
                 .status(200)
                 .entity(getraenkeautomat)
+                .build();
+    }
+
+    /**
+     * inserts a new Getraenkeautomat
+     * @param modellnummer
+     * @param farbe
+     * @return Response
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertGetraenkeautomat(
+            @FormParam("modellnummer") String modellnummer,
+            @FormParam("farbe") String farbe
+    ) {
+        Getraenkeautomat getraenkeautomat = new Getraenkeautomat();
+        getraenkeautomat.setGetraenkeautomatUUID(UUID.randomUUID().toString());
+        getraenkeautomat.setModellnummer(modellnummer);
+        getraenkeautomat.setFarbe(farbe);
+
+        DataHandler.insertGetraenkeautomat(getraenkeautomat);
+        return Response
+                .status(200)
+                .entity("")
                 .build();
     }
 }

@@ -5,10 +5,13 @@ import ch.bzz.getraenkeautomat.model.Marke;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import ch.bzz.getraenkeautomat.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import javax.xml.crypto.Data;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -39,7 +42,7 @@ public class DataHandler {
 
     /**
      * gets the only instance of this class
-     * @return
+     *
      */
     public synchronized static DataHandler getInstance() {
         if (instance == null)
@@ -125,7 +128,7 @@ public class DataHandler {
      * @param getraenkeautomat the book to be saved
      */
     public static void insertGetraenkeautomat(Getraenkeautomat getraenkeautomat) {
-        getGetraenkeautomatList().add(Getraenkeautomat);
+        getGetraenkeautomatList().add(getraenkeautomat);
         writeGetraenkeautomatJSON();
     }
     /**
@@ -234,6 +237,25 @@ public class DataHandler {
     }
 
     /**
+     * writes the bookList to the JSON-file
+     */
+    private static void writeGetraenkJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String getraenkPath = Config.getProperty("getraenkJSON");
+        try {
+            fileOutputStream = new FileOutputStream(getraenkPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getGetraenkList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the marken from the JSON-file
      */
     private static void readMarkeJSON() {
@@ -254,6 +276,25 @@ public class DataHandler {
     }
 
     /**
+     * writes the bookList to the JSON-file
+     */
+    private static void writeMarkeJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String markePath = Config.getProperty("markeJSON");
+        try {
+            fileOutputStream = new FileOutputStream(markePath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getMarkeList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the getraenkeautomat from the JSON-file
      */
     private static void readGetraenkeautomatJSON() {
@@ -268,6 +309,25 @@ public class DataHandler {
             for (Getraenkeautomat getraenkeautomat : getraenkeautomaten) {
                 getGetraenkeautomatList().add(getraenkeautomat);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the bookList to the JSON-file
+     */
+    private static void writeGetraenkeautomatJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String getraenkeautomatPath = Config.getProperty("getraenkeautomatJSON");
+        try {
+            fileOutputStream = new FileOutputStream(getraenkeautomatPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getGetraenkeautomatList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
