@@ -77,4 +77,25 @@ public class MarkeService {
                 .entity("")
                 .build();
     }
+
+    /**
+     * deletes a song identified by its uuid
+     * @param markeUUID the key
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteMarke(
+            @QueryParam("uuid") String markeUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteMarke(markeUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 }

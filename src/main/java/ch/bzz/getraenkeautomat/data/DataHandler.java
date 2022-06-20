@@ -14,6 +14,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +30,12 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
+        setGetraenkList(new ArrayList<>());
+        readGetraenkJSON();
+        setMarkeList(new ArrayList<>());
+        readMarkeJSON();
+        setGetraenkeautomatList(new ArrayList<>());
+        readGetraenkeautomatJSON();
     }
 
     /**
@@ -39,17 +46,6 @@ public class DataHandler {
         DataHandler.setMarkeList(null);
         DataHandler.setGetraenkeautomatList(null);
     }
-
-    /**
-     * gets the only instance of this class
-     *
-     */
-    public synchronized static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
-
 
     /**
      * reads all Getraenke
@@ -339,6 +335,10 @@ public class DataHandler {
      * @return value of getraenkList
      */
     private static List<Getraenk> getGetraenkList() {
+        if (getraenkList == null) {
+            setGetraenkList(new ArrayList<>());
+            readGetraenkJSON();
+        }
         return getraenkList;
     }
 
@@ -356,6 +356,10 @@ public class DataHandler {
      * @return value of markeList
      */
     private static List<Marke> getMarkeList() {
+        if (markeList == null) {
+            setMarkeList(new ArrayList<>());
+            readMarkeJSON();
+        }
         return markeList;
     }
 
@@ -374,6 +378,10 @@ public class DataHandler {
      * @return value of getraenkeautomatList
      */
     private static List<Getraenkeautomat> getGetraenkeautomatList() {
+        if (getraenkeautomatList == null) {
+            setGetraenkeautomatList(new ArrayList<>());
+            readGetraenkeautomatJSON();
+        }
         return getraenkeautomatList;
     }
 

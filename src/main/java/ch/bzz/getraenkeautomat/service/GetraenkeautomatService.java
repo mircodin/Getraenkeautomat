@@ -70,4 +70,25 @@ public class GetraenkeautomatService {
                 .entity("")
                 .build();
     }
+
+    /**
+     * deletes a Getraenkeautomat identified by its uuid
+     * @param getraenkeautomatUUID the key
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteGetraenkeautomat(
+            @QueryParam("uuid") String getraenkeautomatUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteGetraenkeautomat(getraenkeautomatUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 }

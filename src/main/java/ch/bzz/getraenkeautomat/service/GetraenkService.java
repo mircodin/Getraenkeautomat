@@ -75,4 +75,25 @@ public class GetraenkService {
                 .entity("")
                 .build();
     }
+
+    /**
+     * deletes a Getraenk identified by its uuid
+     * @param getraenkUUID the key
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteGetraenk(
+            @QueryParam("uuid") String getraenkUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteGetraenk(getraenkUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 }
