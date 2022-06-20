@@ -1,0 +1,894 @@
+{
+	"info": {
+		"_postman_id": "31e70f05-0d04-40cc-a713-a93b710dc640",
+		"name": "Getraenkeautomat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.1 Testservice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenke List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Read",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Read Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=c746a291-0ef9-4b2a-8268-392b12d67105",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c746a291-0ef9-4b2a-8268-392b12d67105"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Read Missing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"read"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Read",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Read Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c746a291-0ef9-8770-8268-392b12d636bd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Read Missing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c746a291-0ef9-8770-8268-392b12d636bd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Read",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Read Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=c636amg1-0ef9-8770-8268-392b12d636bd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c636amg1-0ef9-8770-8268-392b12d636bd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Read Missing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"read"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Insert bezeichnung Invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Insert modellnummer Invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Insert Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "getraenkUUID",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0",
+							"type": "text"
+						},
+						{
+							"key": "bezeichnung",
+							"value": "Fanta Mango",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "1.35",
+							"type": "text"
+						},
+						{
+							"key": "inhaltInML",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "ablaufdatum",
+							"value": "2023-11-11",
+							"type": "text"
+						},
+						{
+							"key": "getraenkeautomatUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "markeUUID",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenk Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenk",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getraenkeautomat Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/delete?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"getraenkeautomat",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marke Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getraenkeautomat-1.0",
+						"resource",
+						"marke",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

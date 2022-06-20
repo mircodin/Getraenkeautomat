@@ -20,7 +20,7 @@ public class Getraenkeautomat {
 
     @FormParam("modellnummer")
     @NotEmpty
-    @Pattern(regexp = "^\\d{7}$")
+    @Size(min = 1, max = 7)
     private String modellnummer;
 
     @FormParam("farbe")
