@@ -22,11 +22,31 @@ public class Getraenk {
     private Marke marke;
 
     public void setGetraenkeautomatUUID(String getraenkeautomatUUID){
-        setGetraenkeautomat(DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID));
+        setGetraenkeautomat(new Getraenkeautomat());
+        Getraenkeautomat getraenkeautomat = DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID);
+        getGetraenkeautomat().setGetraenkeautomatUUID(getraenkeautomatUUID);
+        getGetraenkeautomat().setModellnummer(getraenkeautomat.getModellnummer());
+        getGetraenkeautomat().setFarbe(getraenkeautomat.getFarbe());
+    }
+
+    public String getGetraenkeautomatUUID() {
+        if (getGetraenkeautomat() == null) return null;
+        return  getGetraenkeautomat().getGetraenkeautomatUUID();
     }
 
     public void setMarkeUUID(String markeUUID){
-        setMarke(DataHandler.readMarkeByUUID(markeUUID));
+        setMarke(new Marke());
+        Marke marke = DataHandler.readMarkeByUUID(markeUUID);
+        getMarke().setMarkeUUID(markeUUID);
+        getMarke().setBezeichnung(marke.getBezeichnung());
+        getMarke().setHauptsitz(marke.getHauptsitz());
+        getMarke().setUmsatz(marke.getUmsatz());
+        getMarke().setTelefonnummer(marke.getTelefonnummer());
+    }
+
+    public String getMarkeUUID() {
+        if (getMarke() == null) return null;
+        return  getMarke().getMarkeUUID();
     }
 
     /**

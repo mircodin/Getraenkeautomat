@@ -62,12 +62,16 @@ public class GetraenkService {
             @FormParam("bezeichnung") String bezeichnung,
             @FormParam("preis") Double preis,
             @FormParam("inhaltInML") Integer inhaltInML,
-            @FormParam("ablaufdatum") Date ablaufdatum
+            @FormParam("ablaufdatum") Date ablaufdatum,
+            @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+            @FormParam("markeUUID") String markeUUID
     ) {
         Getraenk getraenk = new Getraenk();
         getraenk.setGetraenkUUID(UUID.randomUUID().toString());
         getraenk.setBezeichnung(bezeichnung);
         getraenk.setPreis(preis);
+        getraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
+        getraenk.setMarkeUUID(markeUUID);
 
         DataHandler.insertGetraenk(getraenk);
         return Response

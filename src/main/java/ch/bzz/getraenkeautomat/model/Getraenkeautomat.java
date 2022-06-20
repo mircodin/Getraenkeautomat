@@ -1,12 +1,22 @@
 package ch.bzz.getraenkeautomat.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Getraenkeautomat {
     private String getraenkeautomatUUID;
+
+    @JsonIgnore
     private List<Getraenk> getraenke;
+
     private String modellnummer;
     private String farbe;
+
+    public Getraenkeautomat() {
+        setGetraenke(new ArrayList<>());
+    }
 
     /**
      * gets getraenkeautomatUUID
