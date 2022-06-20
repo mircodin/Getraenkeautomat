@@ -3,16 +3,37 @@ package ch.bzz.getraenkeautomat.model;
 import ch.bzz.getraenkeautomat.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.*;
 
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.Date;
 
 public class Getraenk {
+    @FormParam("getraenkUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String getraenkUUID;
+
+    @FormParam("bezeichnung")
+    @NotEmpty
+    @Size(min = 1, max = 30)
     private String bezeichnung;
+
+    @FormParam("preis")
+    @NotEmpty
+    @DecimalMin(value = "0.05")
+    @DecimalMax(value = "100.00")
     private Double preis;
+
+    @FormParam("inhaltInML")
+    @NotEmpty
+    @Size(min = 1, max = 10000)
     private Integer inhaltInML;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @FormParam("ablaufdatum")
+    @NotEmpty
+    @Pattern(regexp = "(([1-2][0-9])|([1-9])|(3[0-1])).((1[0-2])|([1-9])).[0-9]{4}")
     private Date ablaufdatum;
 
     @JsonIgnore

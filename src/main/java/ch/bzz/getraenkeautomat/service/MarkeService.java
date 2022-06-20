@@ -4,6 +4,9 @@ import ch.bzz.getraenkeautomat.data.DataHandler;
 import ch.bzz.getraenkeautomat.model.Getraenk;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import ch.bzz.getraenkeautomat.model.Marke;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -38,6 +41,8 @@ public class MarkeService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readMarke(
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String markeUUID
     ) {
         Marke marke = DataHandler.readMarkeByUUID(markeUUID);
@@ -49,27 +54,15 @@ public class MarkeService {
 
     /**
      * inserts a new Marke
-     * @param bezeichnung
-     * @param hauptsitz
-     * @param umsatz
-     * @param telefonnummer
      * @return Response
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertMarke(
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("hauptsitz") String hauptsitz,
-            @FormParam("umsatz") Integer umsatz,
-            @FormParam("telefonnummer") String telefonnummer
+            @Valid @BeanParam Marke marke
     ) {
-        Marke marke = new Marke();
         marke.setMarkeUUID(UUID.randomUUID().toString());
-        marke.setBezeichnung(bezeichnung);
-        marke.setHauptsitz(hauptsitz);
-        marke.setUmsatz(umsatz);
-        marke.setTelefonnummer(telefonnummer);
 
         DataHandler.insertMarke(marke);
         return Response
@@ -87,6 +80,8 @@ public class MarkeService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteMarke(
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String markeUUID
     ) {
         int httpStatus = 200;
@@ -101,30 +96,21 @@ public class MarkeService {
 
     /**
      * updates a Marke
-     * @param markeUUID
-     * @param bezeichnung
-     * @param hauptsitz
-     * @param umsatz
-     * @param telefonnummer
      * @return Response
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateMarke(
-            @FormParam("markeUUID") String markeUUID,
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("hauptsitz") String hauptsitz,
-            @FormParam("umsatz") Integer umsatz,
-            @FormParam("telefonnummer") String telefonnummer
+            @Valid @BeanParam Marke marke
     ) {
         int httpStatus = 200;
-        Marke marke = DataHandler.readMarkeByUUID(markeUUID);
-        if (markeUUID != null) {
-            marke.setBezeichnung(bezeichnung);
-            marke.setHauptsitz(hauptsitz);
-            marke.setUmsatz(umsatz);
-            marke.setTelefonnummer(telefonnummer);
+        Marke oldMarke = DataHandler.readMarkeByUUID(marke.getMarkeUUID());
+        if (oldMarke != null) {
+            oldMarke.setBezeichnung(marke.getBezeichnung());
+            oldMarke.setHauptsitz(marke.getHauptsitz());
+            oldMarke.setUmsatz(marke.getUmsatz());
+            oldMarke.setTelefonnummer(marke.getTelefonnummer());
             DataHandler.updateMarke();
         } else {
             httpStatus = 410;

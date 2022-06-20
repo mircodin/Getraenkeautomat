@@ -1,17 +1,31 @@
 package ch.bzz.getraenkeautomat.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
+import javax.ws.rs.FormParam;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Getraenkeautomat {
+    @FormParam("getraenkeautomatUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String getraenkeautomatUUID;
 
     @JsonIgnore
     private List<Getraenk> getraenke;
 
+    @FormParam("modellnummer")
+    @NotEmpty
+    @Pattern(regexp = "^\\d{7}$")
     private String modellnummer;
+
+    @FormParam("farbe")
+    @NotEmpty
+    @Size(min = 1, max = 30)
     private String farbe;
 
     public Getraenkeautomat() {

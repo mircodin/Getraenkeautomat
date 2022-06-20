@@ -1,10 +1,35 @@
 package ch.bzz.getraenkeautomat.model;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+import javax.ws.rs.FormParam;
+import javax.ws.rs.Path;
+
 public class Marke {
+    @FormParam("markeUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String markeUUID;
+
+    @FormParam("bezeichnung")
+    @NotEmpty
+    @Size(min = 1, max = 30)
     private String bezeichnung;
+
+    @FormParam("hauptsitz")
+    @NotEmpty
+    @Size(min = 1, max = 30)
     private String hauptsitz;
+
+    @FormParam("umsatz")
+    @NotEmpty
+    @Size(min = 1, max = 9000000)
     private Integer umsatz;
+
+    @FormParam("telefonnummer")
+    @NotEmpty
+    @Pattern(regexp = "^+?[1-9]\\d{1,14}$")
     private String telefonnummer;
 
     /**

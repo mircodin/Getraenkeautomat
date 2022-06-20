@@ -3,6 +3,10 @@ package ch.bzz.getraenkeautomat.service;
 import ch.bzz.getraenkeautomat.data.DataHandler;
 import ch.bzz.getraenkeautomat.model.Getraenk;
 import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
+import ch.bzz.getraenkeautomat.model.Marke;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -39,6 +43,8 @@ public class GetraenkService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readGetraenk(
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String getraenkUUID
     ) {
         Getraenk getraenk = DataHandler.readGetraenkByUUID(getraenkUUID);
@@ -50,27 +56,21 @@ public class GetraenkService {
 
     /**
      * inserts a new Getraenk
-     * @param bezeichnung
-     * @param preis
-     * @param inhaltInML
-     * @param ablaufdatum
      * @return Response
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertGetraenk(
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("preis") Double preis,
-            @FormParam("inhaltInML") Integer inhaltInML,
-            @FormParam("ablaufdatum") Date ablaufdatum,
+            @Valid @BeanParam Getraenk getraenk,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("markeUUID") String markeUUID
     ) {
-        Getraenk getraenk = new Getraenk();
         getraenk.setGetraenkUUID(UUID.randomUUID().toString());
-        getraenk.setBezeichnung(bezeichnung);
-        getraenk.setPreis(preis);
         getraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
         getraenk.setMarkeUUID(markeUUID);
 
@@ -90,6 +90,8 @@ public class GetraenkService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteGetraenk(
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String getraenkUUID
     ) {
         int httpStatus = 200;
@@ -104,32 +106,27 @@ public class GetraenkService {
 
     /**
      * updates a Getraenk
-     * @param getraenkUUID
-     * @param bezeichnung
-     * @param preis
-     * @param inhaltInML
-     * @param ablaufdatum
      * @return Response
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateGetraenk(
-            @FormParam("getraenkUUID") String getraenkUUID,
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("preis") Double preis,
-            @FormParam("inhaltInML") Integer inhaltInML,
-            @FormParam("ablaufdatum") Date ablaufdatum,
+            @Valid @BeanParam Getraenk getraenk,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+            @NotEmpty
+            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("markeUUID") String markeUUID
     ) {
         int httpStatus = 200;
-        Getraenk getraenk = DataHandler.readGetraenkByUUID(getraenkUUID);
-        if (getraenk != null) {
-            getraenk.setBezeichnung(bezeichnung);
-            getraenk.setPreis(preis);
-            getraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
-            getraenk.setMarkeUUID(markeUUID);
+        Getraenk oldGetraenk = DataHandler.readGetraenkByUUID(getraenk.getGetraenkUUID());
+        if (oldGetraenk != null) {
+            oldGetraenk.setBezeichnung(getraenk.getBezeichnung());
+            oldGetraenk.setPreis(getraenk.getPreis());
+            oldGetraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
+            oldGetraenk.setMarkeUUID(markeUUID);
             DataHandler.updateGetraenk();
         } else {
             httpStatus = 410;
