@@ -91,4 +91,35 @@ public class GetraenkeautomatService {
                 .entity("")
                 .build();
     }
+
+    /**
+     * updates a Getraenkeautomat
+     * @param getraenkeautomatUUID;
+     * @param modellnummer
+     * @param farbe
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateGetraenkeautomat(
+            @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+            @FormParam("modellnummer") String modellnummer,
+            @FormParam("farbe") String farbe
+    ) {
+        int httpStatus = 200;
+        Getraenkeautomat getraenkeautomat = DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID);
+        if (getraenkeautomat != null) {
+            getraenkeautomat.setModellnummer(modellnummer);
+            getraenkeautomat.setFarbe(farbe);
+            DataHandler.updateGetraenkeautomat();
+        } else {
+            httpStatus = 410;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 }

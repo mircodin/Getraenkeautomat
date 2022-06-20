@@ -98,4 +98,41 @@ public class MarkeService {
                 .entity("")
                 .build();
     }
+
+    /**
+     * updates a Marke
+     * @param markeUUID
+     * @param bezeichnung
+     * @param hauptsitz
+     * @param umsatz
+     * @param telefonnummer
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateMarke(
+            @FormParam("markeUUID") String markeUUID,
+            @FormParam("bezeichnung") String bezeichnung,
+            @FormParam("hauptsitz") String hauptsitz,
+            @FormParam("umsatz") Integer umsatz,
+            @FormParam("telefonnummer") String telefonnummer
+    ) {
+        int httpStatus = 200;
+        Marke marke = DataHandler.readMarkeByUUID(markeUUID);
+        if (markeUUID != null) {
+            marke.setBezeichnung(bezeichnung);
+            marke.setHauptsitz(hauptsitz);
+            marke.setUmsatz(umsatz);
+            marke.setTelefonnummer(telefonnummer);
+            DataHandler.updateMarke();
+        } else {
+            httpStatus = 410;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 }

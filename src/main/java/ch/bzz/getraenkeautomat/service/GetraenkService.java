@@ -7,6 +7,7 @@ import ch.bzz.getraenkeautomat.model.Getraenkeautomat;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.util.Date;
 import java.util.List;
@@ -95,6 +96,45 @@ public class GetraenkService {
         if (!DataHandler.deleteGetraenk(getraenkUUID)) {
             httpStatus = 410;
         }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * updates a Getraenk
+     * @param getraenkUUID
+     * @param bezeichnung
+     * @param preis
+     * @param inhaltInML
+     * @param ablaufdatum
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateGetraenk(
+            @FormParam("getraenkUUID") String getraenkUUID,
+            @FormParam("bezeichnung") String bezeichnung,
+            @FormParam("preis") Double preis,
+            @FormParam("inhaltInML") Integer inhaltInML,
+            @FormParam("ablaufdatum") Date ablaufdatum,
+            @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+            @FormParam("markeUUID") String markeUUID
+    ) {
+        int httpStatus = 200;
+        Getraenk getraenk = DataHandler.readGetraenkByUUID(getraenkUUID);
+        if (getraenk != null) {
+            getraenk.setBezeichnung(bezeichnung);
+            getraenk.setPreis(preis);
+            getraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
+            getraenk.setMarkeUUID(markeUUID);
+            DataHandler.updateGetraenk();
+        } else {
+            httpStatus = 410;
+        }
+
         return Response
                 .status(httpStatus)
                 .entity("")
