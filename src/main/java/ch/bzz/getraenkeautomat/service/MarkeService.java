@@ -72,7 +72,7 @@ public class MarkeService {
     }
 
     /**
-     * deletes a song identified by its uuid
+     * deletes a marke identified by its uuid
      * @param markeUUID the key
      * @return Response
      */

@@ -1,5 +1,6 @@
 package ch.bzz.getraenkeautomat.model;
 
+import ch.bzz.getraenkeautomat.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -28,10 +29,6 @@ public class Getraenkeautomat {
     @Size(min = 1, max = 30)
     private String farbe;
 
-    public Getraenkeautomat() {
-        setGetraenke(new ArrayList<>());
-    }
-
     /**
      * gets getraenkeautomatUUID
      *
@@ -55,7 +52,7 @@ public class Getraenkeautomat {
      *
      * @return value of getraenke
      */
-    public List<Getraenk> getGetraenke() {
+    public List<Getraenk> getGetraenkeList() {
         return getraenke;
     }
 
@@ -64,7 +61,7 @@ public class Getraenkeautomat {
      *
      * @param getraenke the value to set
      */
-    public void setGetraenke(List<Getraenk> getraenke) {
+    public void setGetraenkeList(List<Getraenk> getraenke) {
         this.getraenke = getraenke;
     }
 
@@ -102,5 +99,41 @@ public class Getraenkeautomat {
      */
     public void setFarbe(String farbe) {
         this.farbe = farbe;
+    }
+
+    /**
+     * sets the getraenke from their UUIDs
+     *
+     * @param uuidList  list of getraenke-uuids
+     */
+    public void setAGetraenkUUID(List<String> uuidList) {
+
+        this.setGetraenkeList(new ArrayList<>());
+        for (String uuid : uuidList) {
+            Getraenk getraenk = DataHandler.readGetraenkByUUID(uuid);
+            this.getGetraenkeList().add(getraenk);
+        }
+    }
+
+    /**
+     * gets all the Getraenke of a Getraenkeautomat
+     * @return  all getraenke as comma separated string
+     */
+    @JsonIgnore
+    public String getGetraenke() {
+        StringBuilder getraenke = new StringBuilder();
+        if (this.getGetraenkeList() != null) {
+            List<String> uuidList = new ArrayList<>();
+            for (Getraenk getraenk : this.getGetraenkeList()) {
+                getraenke.append(getraenk.getBezeichnung()).append(", ");
+                getraenke.append(getraenk.getPreis()).append(", ");
+                getraenke.append(getraenk.getInhaltInML()).append(", ");
+                getraenke.append(getraenk.getAblaufdatum()).append(", ");
+            }
+
+        }
+        return (getraenke.length() == 0)
+                ? null
+                : (getraenke.substring(0, getraenke.length() - 2));
     }
 }

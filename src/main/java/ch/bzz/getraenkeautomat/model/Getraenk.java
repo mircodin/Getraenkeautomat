@@ -37,23 +37,7 @@ public class Getraenk {
     private Date ablaufdatum;
 
     @JsonIgnore
-    private Getraenkeautomat getraenkeautomat;
-
-    @JsonIgnore
     private Marke marke;
-
-    public void setGetraenkeautomatUUID(String getraenkeautomatUUID){
-        setGetraenkeautomat(new Getraenkeautomat());
-        Getraenkeautomat getraenkeautomat = DataHandler.readGetraenkeautomatbyUUID(getraenkeautomatUUID);
-        getGetraenkeautomat().setGetraenkeautomatUUID(getraenkeautomatUUID);
-        getGetraenkeautomat().setModellnummer(getraenkeautomat.getModellnummer());
-        getGetraenkeautomat().setFarbe(getraenkeautomat.getFarbe());
-    }
-
-    public String getGetraenkeautomatUUID() {
-        if (getGetraenkeautomat() == null) return null;
-        return  getGetraenkeautomat().getGetraenkeautomatUUID();
-    }
 
     public void setMarkeUUID(String markeUUID){
         setMarke(new Marke());
@@ -158,24 +142,6 @@ public class Getraenk {
      */
     public void setAblaufdatum(Date ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
-    }
-
-    /**
-     * gets getraenkeautomat
-     *
-     * @return value of getraenkeautomat
-     */
-    public Getraenkeautomat getGetraenkeautomat() {
-        return getraenkeautomat;
-    }
-
-    /**
-     * sets getraenkeautomat
-     *
-     * @param getraenkeautomat the value to set
-     */
-    public void setGetraenkeautomat(Getraenkeautomat getraenkeautomat) {
-        this.getraenkeautomat = getraenkeautomat;
     }
 
     /**
