@@ -1,29 +1,29 @@
 /**
- * view-controller for artistedit.html
- * @author Saranya Wenger
+ * view-controller for markeedit.html
+ * @author Mirco Di Natale
  */
 document.addEventListener("DOMContentLoaded", () => {
-    readArtist();
+    readMarke();
 
-    document.getElementById("artisteditForm").addEventListener("submit", saveArtist);
+    document.getElementById("markeeditForm").addEventListener("submit", saveMarke);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
 });
 
 /**
- * saves the data of an artist
+ * saves the data of an marke
  * @param event
  */
-function saveArtist(event) {
+function saveMarke(event) {
     event.preventDefault();
 
-    const artistForm = document.getElementById("artisteditForm");
-    const formData = new FormData(artistForm);
+    const markeForm = document.getElementById("markeeditForm");
+    const formData = new FormData(markeForm);
     const data = new URLSearchParams(formData)
 
     let method;
-    let url = "./resource/artist/";
-    const artistUUID = getQueryParam("uuid")
-    if (artistUUID == null) {
+    let url = "./resource/marke/";
+    const markeUUID = getQueryParam("uuid")
+    if (markeUUID == null) {
         method = "POST";
         url += "create";
     } else {
@@ -51,11 +51,11 @@ function saveArtist(event) {
 }
 
 /**
- * reads an artist
+ * reads an marke
  */
-function readArtist() {
-    const artistUUID = getQueryParam("uuid");
-    fetch("./resource/artist/read?uuid=" + artistUUID)
+function readMarke() {
+    const markeUUID = getQueryParam("uuid");
+    fetch("./resource/marke/read?uuid=" + markeUUID)
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -65,7 +65,7 @@ function readArtist() {
         })
         .then(response => response.json())
         .then(data => {
-            showArtist(data);
+            showMarke(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -73,21 +73,21 @@ function readArtist() {
 }
 
 /**
- * show the data of an artist
- * @param data  the artist-data
+ * show the data of an marke
+ * @param data  the marke-data
  */
-function showArtist(data) {
-    document.getElementById("artistUUID").value = data.artistUUID;
-    document.getElementById("firstname").value = data.firstname;
-    document.getElementById("surname").value = data.surname;
-    document.getElementById("tel").value = data.tel;
-    document.getElementById("numberOfSongs").value = data.numberOfSongs;
+function showMarke(data) {
+    document.getElementById("markeUUID").value = data.markeUUID;
+    document.getElementById("bezeichnung").value = data.bezeichnung;
+    document.getElementById("hauptsitz").value = data.hauptsitz;
+    document.getElementById("umsatz").value = data.umsatz;
+    document.getElementById("telefonnummer").value = data.telefonnummer;
 }
 
 /**
- * redirects to soundcloud.html
+ * redirects to getraenkeautomat.html
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "./soundcloud.html";
+    window.location.href = "./getraenkeautomat.html";
 }

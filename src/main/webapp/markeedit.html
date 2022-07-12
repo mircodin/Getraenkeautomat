@@ -5,28 +5,36 @@
     <meta name="author" content="Mirco Di Natale"/>
     <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
     <meta name="project" content="Getraenkeautomat"/>
-    <meta name="description" content="Getraenkeautomat form edit"/>
-    <title>Song bearbeiten</title>
-    <script src="./js/getraenkeautomatedit.js"></script>
+    <meta name="description" content="Marke form edit"/>
+    <title>Marke bearbeiten</title>
+    <script src="./js/markeedit.js"></script>
     <script src="./js/util.js"></script>
 </head>
 <body>
 <nav id="nav">
     <span id="message" style="color: red;"></span>
 </nav>
-<h3>Getraenkeautomat bearbeiten</h3>
-<form id="getraenkeautomateditForm" name="getraenkeautomatedit">
+<h3>Marke bearbeiten</h3>
+<form id="markeeditForm" name="markeedit">
     <table>
         <tr>
-            <td><label for="modellnummer">Modelnummer</label></td>
+            <td><label for="bezeichung">Bezeichnung</label></td>
             <td>
-                <input id="modellnummer" name="modellnummer" type="text" size="7" minlength="1" maxlength="7" required/>
-                <input id="getraenkeautomatUUID" name="getraenkeautomatUUID" type="hidden"/>
+                <input id="bezeichung" name="bezeichung" type="text" size="30" minlength="1" maxlength="30" required/>
+                <input id="markeUUID" name="markeUUID" type="hidden"/>
             </td>
         </tr>
         <tr>
-            <td><label for="farbe">Farbe</label></td>
-            <td><input id="farbe" name="farbe" type="text" type="text" size="30" minlength="1" maxlength="30" required/></td>
+            <td><label for="hauptsitz">Hauptsitz</label></td>
+            <td><input id="hauptsitz" name="hauptsitz" type="text" type="text" size="30" minlength="1" maxlength="30" required/></td>
+        </tr>
+        <tr>
+            <td><label for="umsatz">Umsatz</label></td>
+            <td><input id="umsatz" name="umsatz" type="text" type="text" size="30" minlength="1" maxlength="9000000" required/></td>
+        </tr>
+        <tr>
+            <td><label for="telefonnummer">Telefonnummer</label></td>
+            <td><input id="telefonnummer" name="telefonnummer" type="text" pattern="^+?[1-9]\d{1,14}$" required/></td>
         </tr>
     </table>
     <table>
