@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mirco Di Natale"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Getraenkeautomat"/>
+    <meta name="description" content="Getraenkeautomat form edit"/>
+    <title>Song bearbeiten</title>
+    <script src="./js/getraenkeautomatedit.js"></script>
+    <script src="./js/util.js"></script>
+</head>
+<body>
+<nav id="nav">
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Getraenkeautomat bearbeiten</h3>
+<form id="getraenkeautomateditForm" name="getraenkeautomatedit">
+    <table>
+        <tr>
+            <td><label for="modellnummer">Modelnummer</label></td>
+            <td>
+                <input id="modellnummer" name="modellnummer" type="text" size="7" minlength="1" maxlength="7" required/>
+                <input id="getraenkeautomatUUID" name="getraenkeautomatUUID" type="hidden"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="farbe">Farbe</label></td>
+            <td><input id="farbe" name="farbe" type="text" type="text" size="30" minlength="1" maxlength="30" required/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Speichern</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Zurücksetzen</button>
+            </td>
+            <td>
+                <button id="cancel" type="button">Abbruch</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
