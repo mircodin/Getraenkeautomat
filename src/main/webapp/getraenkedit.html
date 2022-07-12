@@ -2,36 +2,44 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Saranya Wenger"/>
+    <meta name="author" content="Mirco Di Natale"/>
     <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
-    <meta name="project" content="SoundCloud"/>
-    <meta name="description" content="song form edit"/>
-    <title>Song bearbeiten</title>
-    <script src="./js/songedit.js"></script>
+    <meta name="project" content="Getraenkeautomat"/>
+    <meta name="description" content="getraenk form edit"/>
+    <title>Getraenk bearbeiten</title>
+    <script src="./js/getraenkedit.js"></script>
     <script src="./js/util.js"></script>
 </head>
 <body>
 <nav id="nav">
     <span id="message" style="color: red;"></span>
 </nav>
-<h3>Song bearbeiten</h3>
-<form id="songeditForm" name="songedit">
+<h3>Getraenk bearbeiten</h3>
+<form id="getraenkeditForm" name="getraenkedit">
     <table>
         <tr>
-            <td><label for="title">Songtitel</label></td>
+            <td><label for="bezeichnung">Bezeichnung</label></td>
             <td>
-                <input id="title" name="title" type="text" size="50" minlength="1" maxlength="50" required/>
-                <input id="songUUID" name="songUUID" type="hidden"/>
+                <input id="bezeichnung" name="bezeichnung" type="text" size="30" minlength="1" maxlength="30" required/>
+                <input id="getraenkUUID" name="getraenkUUID" type="hidden"/>
             </td>
         </tr>
         <tr>
-            <td><label for="uploadDate">Hochladedatum</label></td>
-            <td><input id="uploadDate" name="uploadDate" type="text"  pattern="^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$" required/></td>
+            <td><label for="preis">Preis</label></td>
+            <td><input id="preis" name="preis" type="number" step="0.05" min="0" max="100" required/></td>
         </tr>
         <tr>
-            <td><label for="genre">Genre</label></td>
+            <td><label for="inhaltInML">Inhalt in ML</label></td>
+            <td><input id="inhaltInML" name="inhaltInML" type="number" min="0" required/></td>
+        </tr>
+        <tr>
+            <td><label for="ablaufdatum">Ablaufdatum</label></td>
+            <td><input id="ablaufdatum" name="ablaufdatum" pattern="^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$" required/></td>
+        </tr>
+        <tr>
+            <td><label for="marke">Marke</label></td>
             <td>
-                <select id="genre" name="genreUUID" required>
+                <select id="marke" name="markeUUID" required>
                 </select>
             </td>
         </tr>

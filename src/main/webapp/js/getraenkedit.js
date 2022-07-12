@@ -1,30 +1,30 @@
 /**
  * view-controller for getraenkedit.html
- * @author Mirco Di Natale
+ * @author Saranya Wenger
  */
 document.addEventListener("DOMContentLoaded", () => {
-    readGenres();
-    readSong();
+    readMarken();
+    readGetraenk();
 
-    document.getElementById("songeditForm").addEventListener("submit", saveSong);
+    document.getElementById("getraenkeditForm").addEventListener("submit", saveGetraenk);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
 });
 
 /**
- * saves the data of a song
+ * saves the data of a getränk
  * @param event
  */
-function saveSong(event) {
+function saveGetraenk(event) {
     event.preventDefault();
 
-    const songForm = document.getElementById("songeditForm");
-    const formData = new FormData(songForm);
+    const getraenkForm = document.getElementById("getraenkeditForm");
+    const formData = new FormData(getraenkForm);
     const data = new URLSearchParams(formData)
 
     let method;
-    let url = "./resource/song/";
-    const songUUID = getQueryParam("uuid")
-    if (songUUID == null) {
+    let url = "./resource/getraenk/";
+    const getraenkUUID = getQueryParam("uuid")
+    if (getraenkUUID == null) {
         method = "POST";
         url += "create";
     } else {
@@ -52,11 +52,11 @@ function saveSong(event) {
 }
 
 /**
- * reads a song
+ * reads a getraenk
  */
-function readSong() {
-    const songUUID = getQueryParam("uuid");
-    fetch("./resource/song/read?uuid=" + songUUID)
+function readGetraenk() {
+    const getraenkUUID = getQueryParam("uuid");
+    fetch("./resource/getraenk/read?uuid=" + getraenkUUID)
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -66,7 +66,7 @@ function readSong() {
         })
         .then(response => response.json())
         .then(data => {
-            showSong(data);
+            showGetraenk(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -74,22 +74,26 @@ function readSong() {
 }
 
 /**
- * show the data of a song
- * @param data  the song-data
+ * show the data of a getraenk
+ * @param data  the getraenk-data
  */
-function showSong(data) {
-    document.getElementById("songUUID").value = data.songUUID;
-    document.getElementById("title").value = data.title;
-    document.getElementById("uploadDate").value = data.uploadDate;
-    document.getElementById("genre").value = data.genreUUID;
+function showGetraenk(data) {
+    document.getElementById("getraenkUUID").value = data.getraenkUUID;
+    document.getElementById("bezeichnung").value = data.title;
+    document.getElementById("preis").value = data.preis;
+    document.getElementById("inhaltInML").value = data.inhaltInML;
+    document.getElementById("ablaufdatum").value = data.ablaufdatum;
+    document.getElementById("marke").value = data.markeUUID;
+
+
 }
 
 /**
- * reads all genres as an array
+ * reads all marken as an array
  */
-function readGenres() {
+function readMarken() {
 
-    fetch("./resource/genre/list")
+    fetch("./resource/marke/list")
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -99,7 +103,7 @@ function readGenres() {
         })
         .then(response => response.json())
         .then(data => {
-            showGenres(data);
+            showMarken(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -107,23 +111,23 @@ function readGenres() {
 }
 
 /**
- * show all genres as a dropdown
+ * show all makren as a dropdown
  * @param data
  */
-function showGenres(data) {
-    let dropdown = document.getElementById("genre");
-    data.forEach(genre => {
+function showMarken(data) {
+    let dropdown = document.getElementById("marke");
+    data.forEach(marke => {
         let option = document.createElement("option");
-        option.text = genre.genreName;
-        option.value = genre.genreUUID;
+        option.text = marke.bezeichnung;
+        option.value = marke.markeUUID;
         dropdown.add(option)
     })
 }
 
 /**
- * redirects to the soundcloud.html
+ * redirects to the getraenklist.html
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "./soundcloud.html";
+    window.location.href = "./getraenklist.html";
 }
