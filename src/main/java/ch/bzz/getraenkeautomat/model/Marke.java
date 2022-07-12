@@ -5,7 +5,6 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import javax.ws.rs.FormParam;
-import javax.ws.rs.Path;
 
 public class Marke {
     @FormParam("markeUUID")

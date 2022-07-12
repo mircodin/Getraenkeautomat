@@ -1,6 +1,6 @@
 [
   {
-    "markeUUID": "db117daa-e295-4597-abcd-a69496797dc0",
+    "markeUUID": "db117daa-e295-4597-abcd-a69496797dc1",
     "getraenkUUID": "c746a291-0ef9-4b2a-8268-392b12d636bd",
     "bezeichnung": "Fanta Orange",
     "preis": 1.30,
@@ -8,7 +8,7 @@
     "ablaufdatum": "2023-12-10"
   },
   {
-    "markeUUID": "db117daa-e295-4597-abcd-a69496797dc0",
+    "markeUUID": "db117daa-e295-4597-abcd-a69496797dc1",
     "getraenkUUID": "db117daa-e295-4597-abcd-a69496797dc0",
     "bezeichnung": "Coca Cola Zero",
     "preis": 1.50,
@@ -16,7 +16,7 @@
     "ablaufdatum": "2023-10-22"
   },
   {
-    "markeUUID": "c746a291-0ef9-4b2a-8268-392b12d636bd",
+    "markeUUID": "73bd4187-a5b7-4864-be79-327bb8ed43b1",
     "getraenkUUID": "73bd4187-a5b7-4864-be79-327bb8ed43bf",
     "bezeichnung": "Rivella Rot",
     "preis": 2,
