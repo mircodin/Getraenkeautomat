@@ -21,7 +21,6 @@ import java.util.List;
  * reads and writes the data in the JSON-files
  */
 public class DataHandler {
-    private static DataHandler instance;
     private static List<Getraenk> getraenkList;
     private static List<Marke> markeList;
     private static List<Getraenkeautomat> getraenkeautomatList;
@@ -30,12 +29,6 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setGetraenkList(new ArrayList<>());
-        readGetraenkJSON();
-        setMarkeList(new ArrayList<>());
-        readMarkeJSON();
-        setGetraenkeautomatList(new ArrayList<>());
-        readGetraenkeautomatJSON();
     }
 
     /**
@@ -222,7 +215,6 @@ public class DataHandler {
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            // objectMapper.registerModule(new JavaTimeModule());
             Getraenk[] getraenke = objectMapper.readValue(jsonData, Getraenk[].class);
             for (Getraenk getraenk : getraenke) {
                 getGetraenkList().add(getraenk);

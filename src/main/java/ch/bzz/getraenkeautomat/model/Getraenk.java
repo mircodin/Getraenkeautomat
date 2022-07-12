@@ -1,13 +1,10 @@
 package ch.bzz.getraenkeautomat.model;
 
 import ch.bzz.getraenkeautomat.data.DataHandler;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.*;
-
 import javax.ws.rs.FormParam;
-import java.time.LocalDate;
-import java.util.Date;
+
 
 public class Getraenk {
     @JsonIgnore
@@ -36,7 +33,7 @@ public class Getraenk {
     @FormParam("ablaufdatum")
     @NotEmpty
     //@Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")
-    private Date ablaufdatum;
+    private String ablaufdatum;
 
     public void setMarkeUUID(String markeUUID){
         setMarke(new Marke());
@@ -130,7 +127,7 @@ public class Getraenk {
      *
      * @return value of ablaufdatum
      */
-    public Date getAblaufdatum() {
+    public String getAblaufdatum() {
         return ablaufdatum;
     }
 
@@ -139,7 +136,7 @@ public class Getraenk {
      *
      * @param ablaufdatum the value to set
      */
-    public void setAblaufdatum(Date ablaufdatum) {
+    public void setAblaufdatum(String ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
     }
 

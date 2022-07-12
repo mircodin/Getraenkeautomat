@@ -26,11 +26,10 @@ public class GetraenkeautomatService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listGetraenkeautomat() {
         List<Getraenkeautomat> getraenkeautomatList = DataHandler.readAllGetraenkeautomaten();
-        Response response = Response
+        return Response
                 .status(200)
                 .entity(getraenkeautomatList)
                 .build();
-        return response;
     }
     /**
      * reads one specific getraenkeautomat

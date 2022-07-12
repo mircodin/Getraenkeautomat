@@ -26,11 +26,10 @@ public class MarkeService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listMarke() {
         List<Marke> markeList = DataHandler.readAllMarken();
-        Response response = Response
+        return Response
                 .status(200)
                 .entity(markeList)
                 .build();
-        return response;
     }
     /**
      * reads one specific marke

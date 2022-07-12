@@ -28,11 +28,10 @@ public class GetraenkService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listGetraenke() {
         List<Getraenk> getraenkList = DataHandler.readAllGetraenke();
-        Response response = Response
+        return Response
                 .status(200)
                 .entity(getraenkList)
                 .build();
-        return response;
     }
     /**
      * reads one specific getraenk
