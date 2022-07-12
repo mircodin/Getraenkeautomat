@@ -1,18 +1,18 @@
 {
-	"id": "5b4b391d-9f1c-44ed-a976-700ee049b0dc",
+	"id": "88488d97-bc16-454e-88ef-7b75c7c71afe",
 	"name": "Getraenkeautomat",
-	"timestamp": "2022-06-20T20:49:25.097Z",
+	"timestamp": "2022-07-12T15:47:08.503Z",
 	"collection_id": "31e70f05-0d04-40cc-a713-a93b710dc640",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 10,
-	"totalFail": 6,
+	"totalPass": 12,
+	"totalFail": 14,
 	"results": [
 		{
 			"id": "fed75e33-d0df-4437-896a-9c1cc969ecbd",
 			"name": "0.1 Testservice",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/test/test",
-			"time": 61,
+			"time": 474,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				61
+				474
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "97440d30-80fe-40f1-8cfe-19f394297deb",
 			"name": "Getraenke List",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/list",
-			"time": 909,
+			"time": 2418,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				909
+				2418
 			],
 			"allTests": [
 				{
@@ -66,7 +66,7 @@
 			"id": "ab8701cc-90ff-4137-a20e-f6dbf6322b53",
 			"name": "Getraenk Read",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 14,
+			"time": 53,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				14
+				53
 			],
 			"allTests": [
 				{
@@ -93,7 +93,7 @@
 			"id": "e9e3ff11-7265-49a0-b662-2ac7661f1498",
 			"name": "Getraenk Read Invalid",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?uuid=c746a291-0ef9-4b2a-8268-392b12d67105",
-			"time": 18,
+			"time": 15,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -108,7 +108,7 @@
 				}
 			},
 			"times": [
-				18
+				15
 			],
 			"allTests": [
 				{
@@ -120,7 +120,7 @@
 			"id": "e99d3fb1-00ae-48f7-bc34-b862ceb9a895",
 			"name": "Getraenk Read Missing",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/read?",
-			"time": 93,
+			"time": 29,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -135,7 +135,7 @@
 				}
 			},
 			"times": [
-				93
+				29
 			],
 			"allTests": [
 				{
@@ -147,7 +147,7 @@
 			"id": "eaf9236e-50c4-48cc-852d-ea135bf1c516",
 			"name": "Getraenkeautomat List",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/list",
-			"time": 57,
+			"time": 294,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -162,7 +162,7 @@
 				}
 			},
 			"times": [
-				57
+				294
 			],
 			"allTests": [
 				{
@@ -174,7 +174,7 @@
 			"id": "f596fbf9-9375-4b04-9328-d4b9e1c2dca0",
 			"name": "Getraenkeautomat Read",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
-			"time": 25,
+			"time": 46,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -189,7 +189,7 @@
 				}
 			},
 			"times": [
-				25
+				46
 			],
 			"allTests": [
 				{
@@ -201,114 +201,6 @@
 			"id": "d725c722-2b8e-42d8-9043-cca8aa28cbf6",
 			"name": "Getraenkeautomat Read Invalid",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
-			"time": 13,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code test": false
-			},
-			"testPassFailCounts": {
-				"Status code test": {
-					"pass": 0,
-					"fail": 1
-				}
-			},
-			"times": [
-				13
-			],
-			"allTests": [
-				{
-					"Status code test": false
-				}
-			]
-		},
-		{
-			"id": "70f0e476-b38b-49de-a6cb-02e5010c0293",
-			"name": "Getraenkeautomat Read Missing",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
-			"time": 11,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code test": false
-			},
-			"testPassFailCounts": {
-				"Status code test": {
-					"pass": 0,
-					"fail": 1
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Status code test": false
-				}
-			]
-		},
-		{
-			"id": "6fef8ce9-6f35-4c58-aee8-71986d2196c9",
-			"name": "Marke List",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/list",
-			"time": 72,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code test": true
-			},
-			"testPassFailCounts": {
-				"Status code test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				72
-			],
-			"allTests": [
-				{
-					"Status code test": true
-				}
-			]
-		},
-		{
-			"id": "563c6ffe-0443-48ba-8431-432e59befc3b",
-			"name": "Marke Read",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 24,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code test": true
-			},
-			"testPassFailCounts": {
-				"Status code test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				24
-			],
-			"allTests": [
-				{
-					"Status code test": true
-				}
-			]
-		},
-		{
-			"id": "81a4123d-cfa2-436d-b70a-f99967b41a0e",
-			"name": "Marke Read Invalid",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=c636amg1-0ef9-8770-8268-392b12d636bd",
 			"time": 12,
 			"responseCode": {
 				"code": 200,
@@ -333,10 +225,10 @@
 			]
 		},
 		{
-			"id": "8d79f984-15e4-4bbe-a58d-892db0e8e452",
-			"name": "Marke Read Missing",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?",
-			"time": 18,
+			"id": "70f0e476-b38b-49de-a6cb-02e5010c0293",
+			"name": "Getraenkeautomat Read Missing",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?",
+			"time": 31,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -351,7 +243,115 @@
 				}
 			},
 			"times": [
-				18
+				31
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "6fef8ce9-6f35-4c58-aee8-71986d2196c9",
+			"name": "Marke List",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/list",
+			"time": 42,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": true
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code test": true
+				}
+			]
+		},
+		{
+			"id": "563c6ffe-0443-48ba-8431-432e59befc3b",
+			"name": "Marke Read",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 30,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": true
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Status code test": true
+				}
+			]
+		},
+		{
+			"id": "81a4123d-cfa2-436d-b70a-f99967b41a0e",
+			"name": "Marke Read Invalid",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?uuid=c636amg1-0ef9-8770-8268-392b12d636bd",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "8d79f984-15e4-4bbe-a58d-892db0e8e452",
+			"name": "Marke Read Missing",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/read?",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				15
 			],
 			"allTests": [
 				{
@@ -363,169 +363,61 @@
 			"id": "eb97ee2b-af24-4977-a075-3902bc368e03",
 			"name": "Getraenk Insert",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
-			"time": 108,
+			"time": 239,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
 			"times": [
-				108
+				239
 			],
 			"allTests": [
-				{}
+				{
+					"Status code test": false
+				}
 			]
 		},
 		{
 			"id": "9a712dd5-8d01-4289-8595-56dc65fa236b",
 			"name": "Getraenk Insert bezeichnung Invalid",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
-			"time": 46,
+			"time": 76,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
 			"times": [
-				46
+				76
 			],
 			"allTests": [
-				{}
+				{
+					"Status code test": false
+				}
 			]
 		},
 		{
 			"id": "614305d6-aec4-46a3-968f-171ad8c87916",
 			"name": "Getraenkeautomat Insert",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
-			"time": 43,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				43
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "8d26a62e-b8f5-44c7-8cad-15474104a6cc",
-			"name": "Getraenkeautomat Insert modellnummer Invalid",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
-			"time": 28,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				28
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "3dcbcb0f-b94d-48a1-9565-07437796e727",
-			"name": "Marke Insert",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
-			"time": 51,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				51
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "51c51fb3-f9bc-489e-8cdb-11a4efd9d761",
-			"name": "Marke Insert Copy",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
-			"time": 34,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				34
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "635ed39a-35d8-48f3-b145-ec846b92bd13",
-			"name": "Getraenk Update",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/update",
-			"time": 178,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				178
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "32789f2e-f778-4d1c-b2db-7bc64db0db1c",
-			"name": "Getraenkeautomat Update",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/update",
-			"time": 22,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				22
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "5551f87d-ad10-4d23-a4ba-b2cee396d026",
-			"name": "Marke Update",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/update",
-			"time": 39,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				39
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "bf0ffa4e-83c7-4237-8c82-6cad7383ffce",
-			"name": "Getraenk Delete",
-			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 396,
+			"time": 464,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -540,7 +432,196 @@
 				}
 			},
 			"times": [
-				396
+				464
+			],
+			"allTests": [
+				{
+					"Status code test": true
+				}
+			]
+		},
+		{
+			"id": "8d26a62e-b8f5-44c7-8cad-15474104a6cc",
+			"name": "Getraenkeautomat Insert modellnummer Invalid",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
+			"time": 98,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				98
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "3dcbcb0f-b94d-48a1-9565-07437796e727",
+			"name": "Marke Insert",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
+			"time": 82,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": true
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				82
+			],
+			"allTests": [
+				{
+					"Status code test": true
+				}
+			]
+		},
+		{
+			"id": "51c51fb3-f9bc-489e-8cdb-11a4efd9d761",
+			"name": "Marke Insert Copy",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
+			"time": 349,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				349
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "635ed39a-35d8-48f3-b145-ec846b92bd13",
+			"name": "Getraenk Update",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/update",
+			"time": 62,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				62
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "32789f2e-f778-4d1c-b2db-7bc64db0db1c",
+			"name": "Getraenkeautomat Update",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/update",
+			"time": 52,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": true
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				52
+			],
+			"allTests": [
+				{
+					"Status code test": true
+				}
+			]
+		},
+		{
+			"id": "5551f87d-ad10-4d23-a4ba-b2cee396d026",
+			"name": "Marke Update",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/update",
+			"time": 30,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status code test": false
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Status code test": false
+				}
+			]
+		},
+		{
+			"id": "bf0ffa4e-83c7-4237-8c82-6cad7383ffce",
+			"name": "Getraenk Delete",
+			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
+			"time": 101,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code test": true
+			},
+			"testPassFailCounts": {
+				"Status code test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				101
 			],
 			"allTests": [
 				{
@@ -552,7 +633,7 @@
 			"id": "131aa28e-0358-40dd-9a28-976a896d8b99",
 			"name": "Getraenkeautomat Delete",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/delete?uuid=ecd86148-5341-43c6-81ed-f3f4595965dc",
-			"time": 17,
+			"time": 50,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -567,7 +648,7 @@
 				}
 			},
 			"times": [
-				17
+				50
 			],
 			"allTests": [
 				{
@@ -579,32 +660,32 @@
 			"id": "ac9bc5a9-3f10-499e-8225-8ad7320d88d8",
 			"name": "Marke Delete",
 			"url": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
-			"time": 37,
+			"time": 16,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 410,
+				"name": "Gone"
 			},
 			"tests": {
-				"Status code test": true
+				"Status code test": false
 			},
 			"testPassFailCounts": {
 				"Status code test": {
-					"pass": 1,
-					"fail": 0
+					"pass": 0,
+					"fail": 1
 				}
 			},
 			"times": [
-				37
+				16
 			],
 			"allTests": [
 				{
-					"Status code test": true
+					"Status code test": false
 				}
 			]
 		}
 	],
 	"count": 1,
-	"totalTime": 2326,
+	"totalTime": 5094,
 	"collection": {
 		"requests": [
 			{

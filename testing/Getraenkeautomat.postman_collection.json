@@ -330,7 +330,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Status code test\", function () {",
-							"  pm.response.to.have.status(410);",
+							"  pm.response.to.have.status(400);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -341,7 +341,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?uuid=c746a291-0ef9-8770-8268-392b12d636bd",
+					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/read?",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -355,8 +355,8 @@
 					],
 					"query": [
 						{
-							"key": "uuid",
-							"value": "c746a291-0ef9-8770-8268-392b12d636bd"
+							"key": "",
+							"value": null
 						}
 					]
 				}
@@ -523,9 +523,57 @@
 		},
 		{
 			"name": "Getraenk Insert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "bezeichnung",
+							"value": "Wasser",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "0.95",
+							"type": "text"
+						},
+						{
+							"key": "inhaltInML",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "ablaufdatum",
+							"value": "2023-11-11",
+							"type": "text"
+						},
+						{
+							"key": "getraenkeautomatUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "markeUUID",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
 					"protocol": "http",
@@ -545,9 +593,57 @@
 		},
 		{
 			"name": "Getraenk Insert bezeichnung Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "bezeichnung",
+							"value": "Wasserrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "0.95",
+							"type": "text"
+						},
+						{
+							"key": "inhaltInML",
+							"value": "500",
+							"type": "text"
+						},
+						{
+							"key": "ablaufdatum",
+							"value": "2023-11-11",
+							"type": "text"
+						},
+						{
+							"key": "getraenkeautomatUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "markeUUID",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenk/create",
 					"protocol": "http",
@@ -567,9 +663,48 @@
 		},
 		{
 			"name": "Getraenkeautomat Insert",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "modellnummer",
+							"value": "944BFR1",
+							"type": "text"
+						},
+						{
+							"key": "farbe",
+							"value": "violett",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
 					"protocol": "http",
@@ -589,9 +724,37 @@
 		},
 		{
 			"name": "Getraenkeautomat Insert modellnummer Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "modellnummer",
+							"value": "944BFR1944BFR1944BFR1a+",
+							"type": "text"
+						},
+						{
+							"key": "farbe",
+							"value": "violett",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/create",
 					"protocol": "http",
@@ -611,9 +774,47 @@
 		},
 		{
 			"name": "Marke Insert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "bezeichnung",
+							"value": "Evian",
+							"type": "text"
+						},
+						{
+							"key": "hauptsitz",
+							"value": "Zuerich",
+							"type": "text"
+						},
+						{
+							"key": "umsatz",
+							"value": "118000",
+							"type": "text"
+						},
+						{
+							"key": "telefonnummer",
+							"value": "+41 62 785 41 11",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/create",
 					"protocol": "http",
@@ -633,6 +834,19 @@
 		},
 		{
 			"name": "Marke Insert Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -655,6 +869,19 @@
 		},
 		{
 			"name": "Getraenk Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -717,12 +944,41 @@
 		},
 		{
 			"name": "Getraenkeautomat Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": []
+					"urlencoded": [
+						{
+							"key": "getraenkeautomatUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "modellnummer",
+							"value": "334HDR3",
+							"type": "text"
+						},
+						{
+							"key": "farbe",
+							"value": "gelb",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/getraenkeautomat/update",
@@ -743,12 +999,51 @@
 		},
 		{
 			"name": "Marke Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code test\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": []
+					"urlencoded": [
+						{
+							"key": "markeUUID",
+							"value": "db117daa-e295-4597-abcd-a69496797dc0",
+							"type": "text"
+						},
+						{
+							"key": "bezeichnung",
+							"value": "Pepsi",
+							"type": "text"
+						},
+						{
+							"key": "hauptsitz",
+							"value": "Atlanta",
+							"type": "text"
+						},
+						{
+							"key": "umsatz",
+							"value": "3780000",
+							"type": "text"
+						},
+						{
+							"key": "telefonnummer",
+							"value": "+41 44 835 91 11",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/update",
@@ -867,6 +1162,10 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
 				"url": {
 					"raw": "http://localhost:8080/Getraenkeautomat-1.0/resource/marke/delete?uuid=db117daa-e295-4597-abcd-a69496797dc0",
 					"protocol": "http",
