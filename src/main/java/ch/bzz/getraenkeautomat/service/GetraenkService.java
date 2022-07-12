@@ -63,15 +63,12 @@ public class GetraenkService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertGetraenk(
             @Valid @BeanParam Getraenk getraenk,
-            @NotEmpty
-            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+
             @NotEmpty
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("markeUUID") String markeUUID
     ) {
         getraenk.setGetraenkUUID(UUID.randomUUID().toString());
-        getraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
         getraenk.setMarkeUUID(markeUUID);
 
         DataHandler.insertGetraenk(getraenk);
@@ -113,9 +110,7 @@ public class GetraenkService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateGetraenk(
             @Valid @BeanParam Getraenk getraenk,
-            @NotEmpty
-            @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("getraenkeautomatUUID") String getraenkeautomatUUID,
+
             @NotEmpty
             @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("markeUUID") String markeUUID
@@ -125,7 +120,6 @@ public class GetraenkService {
         if (oldGetraenk != null) {
             oldGetraenk.setBezeichnung(getraenk.getBezeichnung());
             oldGetraenk.setPreis(getraenk.getPreis());
-            oldGetraenk.setGetraenkeautomatUUID(getraenkeautomatUUID);
             oldGetraenk.setMarkeUUID(markeUUID);
             DataHandler.updateGetraenk();
         } else {

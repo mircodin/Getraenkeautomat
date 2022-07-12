@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Getraenk {
+    @JsonIgnore
+    private Marke marke;
+
     @FormParam("getraenkUUID")
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String getraenkUUID;
@@ -26,18 +29,14 @@ public class Getraenk {
     private Double preis;
 
     @FormParam("inhaltInML")
-    @NotEmpty
-    @Size(min = 1, max = 10000)
+    @Positive
+    //@Size(min = 1, max = 10000)
     private Integer inhaltInML;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @FormParam("ablaufdatum")
     @NotEmpty
-    @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")
+    //@Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$")
     private Date ablaufdatum;
-
-    @JsonIgnore
-    private Marke marke;
 
     public void setMarkeUUID(String markeUUID){
         setMarke(new Marke());
